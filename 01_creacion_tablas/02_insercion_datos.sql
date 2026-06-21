@@ -182,20 +182,20 @@ INSERT INTO Pagos (ID_Matricula, ID_Metodo_Pago, Fecha_Pago, Monto_Pago) VALUES 
 
 
 -- Clase 1000
-INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia) VALUES (1000, 100, '2026-06-08 10:00', 1, NULL);              -- Sofía asiste
-INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia) VALUES (1000, 105, '2026-06-08 11:00', 0, 'No se presentó');  -- Tomás falta
+INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia, Recupera_Clase) VALUES (1000, 100, '2026-06-08 10:00', 1, NULL, 0);              -- Sofía asiste
+INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia, Recupera_Clase) VALUES (1000, 105, '2026-06-08 11:00', 0, 'No se presentó', 0);  -- Tomás falta
 
 -- Clase 1001
-INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia) VALUES (1001, 102, '2026-06-10 09:00', 1, NULL);              -- Valentina asiste
-INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia) VALUES (1001, 105, '2026-06-10 09:30', 0, 'No se presentó');  -- Tomás falta
+INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia, Recupera_Clase) VALUES (1001, 102, '2026-06-10 09:00', 1, NULL, 0);              -- Valentina asiste
+INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia, Recupera_Clase) VALUES (1001, 105, '2026-06-10 09:30', 0, 'No se presentó', 0);  -- Tomás falta
 
 -- Clase 1002 
-INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia) VALUES (1002, 104, '2026-06-13 12:00', 1, NULL);              -- Camila asiste
-INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia) VALUES (1002, 105, '2026-06-13 12:30', 0, 'No se presentó');  -- Tomás falta
+INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia, Recupera_Clase) VALUES (1002, 104, '2026-06-13 12:00', 1, NULL, 0);              -- Camila asiste
+INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia, Recupera_Clase) VALUES (1002, 105, '2026-06-13 12:30', 0, 'No se presentó', 0);  -- Tomás falta
 
 -- Clase 1003 
-INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia) VALUES (1003, 107, '2026-06-15 08:00', 1, NULL);
-INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, ID_Motivo_Cancelacion, Fecha_Cancelacion, Recupera_Clase) VALUES (1003, 106, '2026-06-14 09:00', NULL, 2, '2026-06-16 14:00', 1);
+INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, Observacion_Asistencia, Recupera_Clase) VALUES (1003, 107, '2026-06-15 08:00', 1, NULL , 0);
+INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio, ID_Motivo_Cancelacion, Fecha_Cancelacion, Recupera_Clase) VALUES (1003, 106, '2026-06-14 09:00', NULL, 2, '2026-06-16 14:00', 1); --Lucia canceló, puede recuperar
 
 -- Clases a futuro (todavía no se tomó lista, por eso Asistio = NULL)
 INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio) VALUES (1004, 100, '2026-06-19 09:00', NULL);  -- Sofía

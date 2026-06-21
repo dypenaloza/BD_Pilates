@@ -165,6 +165,20 @@ CONSTRAINT CK_Reservas_CancelacionAsistencia CHECK
 CONSTRAINT UQ_Reservas_AlumnoClase UNIQUE (ID_Alumno,ID_Clase)
 );
 
+--Correción posterior:
+ALTER TABLE Reservas
+ADD CONSTRAINT CK_Reservas_RecuperaClase_Logica
+CHECK (
+--Caso 1: Canceló entonces no puede asistir (null), y recupera clase no debe quedar vacío
+    (Fecha_Cancelacion IS NOT NULL AND Asistio IS NULL AND Recupera_Clase IS NOT NULL)
+    OR
+--Caso 2: No canceló, pero aun no se tomó lista asi que puede quedar null
+    (Fecha_Cancelacion IS NULL  AND Asistio IS NULL AND Recupera_Clase IS NULL)
+    OR
+--Caso 3: no canceló y ya se registró asistencia
+    (Fecha_Cancelacion IS NULL AND Asistio IS NOT NULL AND Recupera_Clase = 0)
+);
+
 CREATE TABLE Lista_de_Espera (
 --Atributos
 ID_Lista_Espera INT IDENTITY(1000,1) NOT NULL,
@@ -232,3 +246,8 @@ CONSTRAINT PK_Pagos PRIMARY KEY (ID_Pago),
 CONSTRAINT FK_Pagos_Matriculas FOREIGN KEY (ID_Matricula) REFERENCES Matriculas(ID_Matricula),
 CONSTRAINT FK_Pagos_Metodo FOREIGN KEY (ID_Metodo_Pago) REFERENCES Metodos_Pago(ID_Metodo_Pago)
 );
+
+
+--CONSULTAS
+
+--Alumnos activos con su plan vigente
