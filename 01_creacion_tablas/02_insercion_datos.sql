@@ -108,7 +108,7 @@ INSERT INTO Clases (ID_Salon, ID_Profesor, Nombre_Clase, Fecha_Clase, Hora_Inici
 VALUES (1, 100, 'Pilates Mat', '2026-06-22', '08:00', '09:00');         
 
 INSERT INTO Clases (ID_Salon, ID_Profesor, Nombre_Clase, Fecha_Clase, Hora_Inicio, Hora_Fin) 
-VALUES (2, 101, 'Pilates Reformer', '2026-06-23', '₀9:₀₀', '₁₀:₀₀');     
+VALUES (2, 101, 'Pilates Reformer', '2026-06-23', '09:00', '10:00');     
 
 INSERT INTO Clases (ID_Salon, ID_Profesor, Nombre_Clase, Fecha_Clase, Hora_Inicio, Hora_Fin) 
 VALUES (3, 102, 'Pilates Terapéutico', '2026-06-24', '10:00', '11:00');  

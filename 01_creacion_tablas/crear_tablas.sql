@@ -1,3 +1,9 @@
+CREATE DATABASE BD_Pilates;
+GO
+
+USE BD_Pilates;
+GO
+
 CREATE TABLE Alumnos (
 --Atributos
 ID_Alumno INT Identity(100,1) NOT NULL,
