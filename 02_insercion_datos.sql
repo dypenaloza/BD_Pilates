@@ -43,6 +43,24 @@ VALUES ('Lucía', 'Fernández', '1156667003', 'lucia.fernandez@bdpilates.com', '
 INSERT INTO Profesores (Nombre_Profesor, Apellido_Profesor, Telefono_Profesor, Email_Profesor, Especialidad, Estado_Profesor)
 VALUES ('Diego', 'Sosa', '1156667004', 'diego.sosa@bdpilates.com', 'Pilates Reformer', 'Inactivo');
 
+INSERT INTO Profesores (Nombre_Profesor, Apellido_Profesor, Telefono_Profesor, Email_Profesor, Especialidad, Estado_Profesor)
+VALUES ('Paula', 'Giménez', '1156667005', 'paula.gimenez@bdpilates.com', 'Pilates Mat', 'Activo');
+
+INSERT INTO Profesores (Nombre_Profesor, Apellido_Profesor, Telefono_Profesor, Email_Profesor, Especialidad, Estado_Profesor)
+VALUES ('Andrés', 'Molina', '1156667006', 'andres.molina@bdpilates.com', 'Pilates Reformer', 'Activo');
+
+INSERT INTO Profesores (Nombre_Profesor, Apellido_Profesor, Telefono_Profesor, Email_Profesor, Especialidad, Estado_Profesor)
+VALUES ('Florencia', 'Castro', '1156667007', 'florencia.castro@bdpilates.com', 'Pilates Terapéutico', 'Activo');
+
+INSERT INTO Profesores (Nombre_Profesor, Apellido_Profesor, Telefono_Profesor, Email_Profesor, Especialidad, Estado_Profesor)
+VALUES ('Gabriel', 'Ruiz', '1156667008', 'gabriel.ruiz@bdpilates.com', 'Pilates Mat', 'Activo');
+
+INSERT INTO Profesores (Nombre_Profesor, Apellido_Profesor, Telefono_Profesor, Email_Profesor, Especialidad, Estado_Profesor)
+VALUES ('Marina', 'Vega', '1156667009', 'marina.vega@bdpilates.com', 'Pilates Reformer', 'Inactivo');
+
+INSERT INTO Profesores (Nombre_Profesor, Apellido_Profesor, Telefono_Profesor, Email_Profesor, Especialidad, Estado_Profesor)
+VALUES ('Hernán', 'Díaz', '1156667010', 'hernan.diaz@bdpilates.com', 'Pilates Mat', 'Activo');
+
 --
 -- PLANES
 --
@@ -85,6 +103,12 @@ VALUES ('Lucía', 'Romero', '33777888', '1167778007', 'lucia.romero@mail.com', '
 INSERT INTO Alumnos (Nombre_Alumno, Apellido_Alumno, DNI_Alumno, Telefono_Alumno, Email_Alumno, Fecha_Nacimiento, Estado_Alumno)
 VALUES ('Nicolás', 'Herrera', '34888999', '1167778008', 'nicolas.herrera@mail.com', '1994-04-04', 'Activo');
 
+INSERT INTO Alumnos (Nombre_Alumno, Apellido_Alumno, DNI_Alumno, Telefono_Alumno, Email_Alumno, Fecha_Nacimiento, Estado_Alumno)
+VALUES ('Brenda', 'Molina', '36888111', '1167778009', 'brenda.molina@mail.com', '1998-02-10', 'Activo');
+
+INSERT INTO Alumnos (Nombre_Alumno, Apellido_Alumno, DNI_Alumno, Telefono_Alumno, Email_Alumno, Fecha_Nacimiento, Estado_Alumno)
+VALUES ('Federico', 'Ríos', '37999222', '1167778010', 'federico.rios@mail.com', '1999-08-21', 'Activo');
+
 
 
 -- CLASES (Principal)
@@ -108,7 +132,7 @@ INSERT INTO Clases (ID_Salon, ID_Profesor, Nombre_Clase, Fecha_Clase, Hora_Inici
 VALUES (1, 100, 'Pilates Mat', '2026-06-22', '08:00', '09:00');         
 
 INSERT INTO Clases (ID_Salon, ID_Profesor, Nombre_Clase, Fecha_Clase, Hora_Inicio, Hora_Fin) 
-VALUES (2, 101, 'Pilates Reformer', '2026-06-23', '₀9:₀₀', '₁₀:₀₀');     
+VALUES (2, 101, 'Pilates Reformer', '2026-06-23', '09:00', '10:00');     
 
 INSERT INTO Clases (ID_Salon, ID_Profesor, Nombre_Clase, Fecha_Clase, Hora_Inicio, Hora_Fin) 
 VALUES (3, 102, 'Pilates Terapéutico', '2026-06-24', '10:00', '11:00');  
@@ -149,6 +173,8 @@ INSERT INTO Matriculas (ID_Plan, ID_Alumno, Fecha_Inicio, Clases_Disponibles, Es
 INSERT INTO Matriculas (ID_Plan, ID_Alumno, Fecha_Inicio, Clases_Disponibles, Estado_Matricula) VALUES (1, 105, '2026-05-01', 2, 'Inactiva');  -- Tomás
 INSERT INTO Matriculas (ID_Plan, ID_Alumno, Fecha_Inicio, Clases_Disponibles, Estado_Matricula) VALUES (3, 106, '2026-06-01', 28, 'Activa');  --Lucía
 INSERT INTO Matriculas (ID_Plan, ID_Alumno, Fecha_Inicio, Clases_Disponibles, Estado_Matricula) VALUES (1, 107, '2026-06-15', 8, 'Activa');   -- Nicolás
+INSERT INTO Matriculas (ID_Plan, ID_Alumno, Fecha_Inicio, Clases_Disponibles, Estado_Matricula) VALUES (1, 108, '2026-06-12', 8, 'Activa');   -- Brenda
+INSERT INTO Matriculas (ID_Plan, ID_Alumno, Fecha_Inicio, Clases_Disponibles, Estado_Matricula) VALUES (2, 109, '2026-06-14', 12, 'Activa');  -- Federico
 
 
 -- metodo pago
@@ -174,6 +200,8 @@ INSERT INTO Pagos (ID_Matricula, ID_Metodo_Pago, Fecha_Pago, Monto_Pago) VALUES 
 INSERT INTO Pagos (ID_Matricula, ID_Metodo_Pago, Fecha_Pago, Monto_Pago) VALUES (1005, 1, '2026-05-01', 12000.00);  -- Tomás
 INSERT INTO Pagos (ID_Matricula, ID_Metodo_Pago, Fecha_Pago, Monto_Pago) VALUES (1006, 4, '2026-06-01', 22000.00);  -- Lucía
 INSERT INTO Pagos (ID_Matricula, ID_Metodo_Pago, Fecha_Pago, Monto_Pago) VALUES (1007, 2, '2026-06-15', 12000.00);  -- Nicolás
+INSERT INTO Pagos (ID_Matricula, ID_Metodo_Pago, Fecha_Pago, Monto_Pago) VALUES (1008, 2, '2026-06-12', 12000.00);  -- Brenda
+INSERT INTO Pagos (ID_Matricula, ID_Metodo_Pago, Fecha_Pago, Monto_Pago) VALUES (1009, 4, '2026-06-14', 16000.00);  -- Federico
 
 
 -- RESERVAS
@@ -214,3 +242,10 @@ INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio) VALUES (1009,
 INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (106, 1005, '2026-06-18', 'Esperando');  -- Lucía
 INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (100, 1006, '2026-06-19', 'Esperando');  -- Sofía
 INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (102, 1009, '2026-06-19', 'Esperando');  -- Valentina
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (101, 1006, '2026-06-19', 'Esperando');  -- Juan
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (103, 1009, '2026-06-19', 'Esperando');  -- Mateo
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (108, 1005, '2026-06-19', 'Esperando');  -- Brenda
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (109, 1006, '2026-06-19', 'Esperando');  -- Federico
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (104, 1005, '2026-06-20', 'Esperando');  -- Camila
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (107, 1009, '2026-06-20', 'Esperando');  -- Nicolás
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (105, 1006, '2026-06-20', 'Esperando');  -- Tomás

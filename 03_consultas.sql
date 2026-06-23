@@ -167,6 +167,44 @@ ORDER BY
     A.Nombre_Alumno;
 
 
+--6)
+--Ingresos totales por metodo de pago
+--sumar cuanto se recaudo con cada metodo de pago y cuantos pagos hubo
+
+SELECT
+    mp.Nombre_Metodo,
+    COUNT(*) AS Cantidad_Pagos,
+    --SUM agrega todos los montos del mismo metodo
+    SUM(p.Monto_Pago) AS Total_Recaudado
+FROM Pagos AS p
+JOIN Metodos_Pago AS mp
+    ON mp.ID_Metodo_Pago = p.ID_Metodo_Pago
+GROUP BY
+    mp.Nombre_Metodo
+--Ordeno de mayor a menor recaudacion
+ORDER BY Total_Recaudado DESC;
+
+
+--7)
+--Profesores y cantidad de clases que dictan
+--listar todos los profesores con cuantas clases tienen asignadas
+--(incluso los que no dictan ninguna)
+
+SELECT
+    pr.ID_Profesor,
+    pr.Nombre_Profesor,
+    pr.Apellido_Profesor,
+    --LEFT JOIN: si el profesor no dicta clases, igual aparece con 0
+    COUNT(c.ID_Clase) AS Cantidad_Clases
+FROM Profesores AS pr
+LEFT JOIN Clases AS c
+    ON c.ID_Profesor = pr.ID_Profesor
+GROUP BY
+    pr.ID_Profesor,
+    pr.Nombre_Profesor,
+    pr.Apellido_Profesor
+ORDER BY Cantidad_Clases DESC;
+
 
 --8)
 --Motivos de cancelación más frecuente
@@ -184,3 +222,58 @@ JOIN(
 ) AS contador
     on m.ID_Motivo_Cancelacion = contador.ID_Motivo_Cancelacion
 ORDER BY contador.Veces DESC;
+
+
+--9)
+--Alumnos activos sin reservas a futuro
+--detectar alumnos activos que no tienen ninguna clase reservada de aca en adelante
+
+SELECT
+    a.ID_Alumno,
+    a.Nombre_Alumno,
+    a.Apellido_Alumno
+FROM Alumnos AS a
+WHERE a.Estado_Alumno = 'Activo'
+    --Subconsulta correlacionada: traigo solo los alumnos que NO tienen
+    --una reserva activa en una clase con fecha futura
+    AND NOT EXISTS (
+        SELECT 1
+        FROM Reservas AS r
+        JOIN Clases AS c
+            ON c.ID_Clase = r.ID_Clase
+        WHERE r.ID_Alumno = a.ID_Alumno
+            AND r.Fecha_Cancelacion IS NULL
+            AND c.Fecha_Clase > CAST(GETDATE() AS DATE)
+    );
+
+
+--10)
+--Detalle completo de reservas
+--mostrar cada reserva con alumno, clase, sede, profesor y el estado segun corresponda
+
+SELECT
+    r.ID_Reserva,
+    a.Nombre_Alumno + ' ' + a.Apellido_Alumno AS Alumno,
+    c.Nombre_Clase,
+    c.Fecha_Clase,
+    sede.Nombre_Sede,
+    pr.Apellido_Profesor AS Profesor,
+    --CASE: traduzco las columnas de la reserva a un estado legible
+    CASE
+        WHEN r.Fecha_Cancelacion IS NOT NULL THEN 'Cancelada'
+        WHEN r.Asistio = 1 THEN 'Asistio'
+        WHEN r.Asistio = 0 THEN 'Ausente'
+        ELSE 'Pendiente'
+    END AS Estado_Reserva
+FROM Reservas AS r
+JOIN Alumnos AS a
+    ON a.ID_Alumno = r.ID_Alumno
+JOIN Clases AS c
+    ON c.ID_Clase = r.ID_Clase
+JOIN Salones AS s
+    ON s.ID_Salon = c.ID_Salon
+JOIN Sedes AS sede
+    ON sede.ID_Sede = s.ID_Sede
+JOIN Profesores AS pr
+    ON pr.ID_Profesor = c.ID_Profesor
+ORDER BY c.Fecha_Clase;
