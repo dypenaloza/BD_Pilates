@@ -242,3 +242,10 @@ INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio) VALUES (1009,
 INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (106, 1005, '2026-06-18', 'Esperando');  -- Lucía
 INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (100, 1006, '2026-06-19', 'Esperando');  -- Sofía
 INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (102, 1009, '2026-06-19', 'Esperando');  -- Valentina
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (101, 1006, '2026-06-19', 'Esperando');  -- Juan
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (103, 1009, '2026-06-19', 'Esperando');  -- Mateo
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (108, 1005, '2026-06-19', 'Esperando');  -- Brenda
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (109, 1006, '2026-06-19', 'Esperando');  -- Federico
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (104, 1005, '2026-06-20', 'Esperando');  -- Camila
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (107, 1009, '2026-06-20', 'Esperando');  -- Nicolás
+INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES (105, 1006, '2026-06-20', 'Esperando');  -- Tomás

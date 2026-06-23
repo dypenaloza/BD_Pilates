@@ -353,7 +353,7 @@ INSERT INTO Reservas (ID_Clase, ID_Alumno, Fecha_Reserva, Asistio) VALUES
 (1009, 101, '2026-06-19 10:20', NULL);
 GO
 
--- LISTA_DE_ESPERA (7)
+-- LISTA_DE_ESPERA (10)
 INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_Espera) VALUES
 (106, 1005, '2026-06-18', 'Esperando'),
 (100, 1006, '2026-06-19', 'Esperando'),
@@ -361,7 +361,10 @@ INSERT INTO Lista_de_Espera (ID_Alumno, ID_Clase, Fecha_Solicitud, Estado_Lista_
 (101, 1006, '2026-06-19', 'Esperando'),
 (103, 1009, '2026-06-19', 'Esperando'),
 (108, 1005, '2026-06-19', 'Esperando'),
-(109, 1006, '2026-06-19', 'Esperando');
+(109, 1006, '2026-06-19', 'Esperando'),
+(104, 1005, '2026-06-20', 'Esperando'),
+(107, 1009, '2026-06-20', 'Esperando'),
+(105, 1006, '2026-06-20', 'Esperando');
 GO
 
 /* ============================================================================
