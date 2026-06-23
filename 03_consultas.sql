@@ -29,7 +29,7 @@ WHERE
 
 SELECT 
     c.ID_Clase,
-    sed.Nombre_Sede,
+    sede.Nombre_Sede,
     c.ID_Profesor,
     s.Cantidad_Reformers AS Cupo_Maximo,
     --Cuento cuántas reservas activas tiene cada clase.
@@ -39,8 +39,8 @@ FROM Clases AS c
 --Traigo el salón de cada clase para saber sede y cupo.
 JOIN Salones AS s
     ON c.ID_Salon = s.ID_Salon
-JOIN Sedes as sed
-    ON s.ID_Sede = s.ID_Sede
+JOIN Sedes as sede
+    ON s.ID_Sede = sede.ID_Sede
 -- LEFT: porque una clase puede no tener reservas todavía.
 LEFT JOIN Reservas AS r
     ON c.ID_Clase = r.ID_Clase
@@ -48,7 +48,7 @@ LEFT JOIN Reservas AS r
 --Traigo reservas activas, pero aunque no haya reservas, la clase sigue apareciendo.
 GROUP BY
     c.ID_Clase,
-    sed.Nombre_Sede,
+    sede.Nombre_Sede,
     c.ID_Profesor,
     s.Cantidad_Reformers
 --Me quedo solo con clases que todavía tienen lugar.
